@@ -8,3 +8,5 @@ Yarn 1.22.5
 
 ### Dependencia de desenvolvimento
 yarn add typescript @types/react @types/react-dom @types/node -D
+
+É recomendado instalar a extensão "Path Intellisense" no VSCode para completar os caminhos dos arquivos sozinho
