@@ -6,10 +6,10 @@ Node.js v14.17.0
 Yarn 1.22.5
 
 
-### Dependencia de desenvolvimento
-yarn add typescript @types/react @types/react-dom @types/node -D
-<<<<<<< HEAD
+### Como rodar o projeto
+Instale o Yarn: `npm install --global yarn`
+Abra o projeto e rode `yarn` no terminal
+Rode o projeto com `yarn dev`
 
 É recomendado instalar a extensão "Path Intellisense" no VSCode para completar os caminhos dos arquivos sozinho
-=======
->>>>>>> 22ba29c19b856b12e1dfc1d99240a877e35c6ce1
+
