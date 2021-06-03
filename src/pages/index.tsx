@@ -1,11 +1,12 @@
 import { Input } from '../components/Input';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { BsEnvelope, BsLock } from 'react-icons/bs'
 
 export default function Home() {
   return (
     <>
       <h1>Hello World!</h1>
-      <Input id='iEmail' icon={faEnvelope} placeholder='Email'/>
+      <Input type="text" id='iEmail' icon={BsEnvelope} labelText='Endereço de Email'/>
+      <Input type="password" id='iSenha' icon={BsLock} labelText='Senha'/>
     </>
   );
 }

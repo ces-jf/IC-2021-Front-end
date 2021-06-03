@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from '../styles/components/Input.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { IconType } from 'react-icons/lib';
 
 interface ButtonProps {
   id: string;
-  placeholder: string;
-  icon: IconDefinition;
+  icon: IconType;
+  labelText: string;
+  type: string;
   size?: number;
 }
 
 export function Input(props: ButtonProps) {
 
   const [inputValue, setInputValue] = useState('');
+  const input = useRef(null);
 
   return (
-    <div className={`${styles.inputContainer} ${inputValue.length > 0 ? styles.filled : null }`}>
-      <FontAwesomeIcon icon={ props.icon }/>
-      <input id={props.id} placeholder={props.placeholder}
+    <>
+    <label htmlFor={props.id} className={styles.labelInput}>{props.labelText}</label>
+    <div onClick={(e) => input.current.focus()} className={`${styles.inputContainer} ${inputValue.length > 0 ? styles.filled : null }`}>
+      <props.icon/>
+      <input id={props.id} ref={input}
         value = {inputValue}
         onChange = { e => {setInputValue(e.target.value)} }
         size = {props.size}
-        type="text"/>
+        type={props.type}/>
     </div>
+    </>
   );
 }
