@@ -1,4 +1,5 @@
 import { Input } from '../components/Input';
+import { Button } from '../components/Button';
 import { BsEnvelope, BsLock } from 'react-icons/bs';
 import Link from 'next/link';
 
@@ -8,8 +9,8 @@ export default function Home() {
       <h1>Hello World!</h1>
       <form>
         <Input type="email" id='iEmail' icon={BsEnvelope} labelText='Endereço de Email' isRequired/>
-        <Input type="password" id='iSenha' icon={BsLock} labelText='Senha'/>
-        <button type="submit">teste</button>
+        <Input type="password" id='iSenha' icon={BsLock} labelText='Senha'/> <br/>
+        <Button type="submit">Login</Button>
         <Link href='/user/natan-fernandes'>
           TESTE 
         </Link>
