@@ -6,11 +6,16 @@ interface ButtonProps {
     type?: any;
     action?: string;
     method?: string;
+    secondary?: boolean;
 }
 
 export function Button(props: ButtonProps) {
     return (
-        <button type={props.type} className={styles.button} formAction={props.action} formMethod={props.method}>
+        <button type={props.type} 
+            className={ props.secondary ? styles.secondaryButton : styles.button} 
+            formAction={props.action} 
+            formMethod={props.method}
+        >
             {props.children}
         </button>
     );

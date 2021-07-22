@@ -11,3 +11,19 @@
 .button:hover {
     background-color: var(--hover-blue);
 }
+
+.secondaryButton {
+    border-radius: 8px;
+    color: var(--blue);
+    background-color: var(--light-blue);
+    border-style: solid;
+    border-color: var(--hover-blue);
+    transition: 0.25s;
+    padding: 0.8rem;
+    font-size: 1.05rem;
+}
+
+.secondaryButton:hover {
+    background-color: var(--hover-blue);
+    color: var(--white)
+}
