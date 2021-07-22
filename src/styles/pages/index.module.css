@@ -10,32 +10,9 @@
 
 .box {
     background-color: var(--light-blue);
+    padding: 4rem 6rem;
     border-radius: 8px;
     z-index: 2;
-}
-
-@media (max-width: 425px)
-{
-    .box {
-        padding: 1rem 1.5rem;
-    }
-}
-
-@media (min-width: 425px)
-{
-    .box {
-        padding: 4rem 6rem;
-    }
-}
-
-
-.buttonArea {
-    text-align: center;
-    width: 100%;
-}
-
-.buttonArea Button {
-    width: 100%;
 }
 
 .wave {
