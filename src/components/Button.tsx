@@ -12,7 +12,7 @@ interface ButtonProps {
 export function Button(props: ButtonProps) {
     return (
         <button type={props.type} 
-            className={ props.secondary ? styles.secondaryButton : styles.button} 
+            className={props.secondary ? styles.secondaryButton : styles.button} 
             formAction={props.action} 
             formMethod={props.method}
         >
