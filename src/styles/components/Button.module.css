@@ -15,7 +15,7 @@
 .secondaryButton {
     border-radius: 8px;
     color: var(--blue);
-    background-color: var(--light-blue);
+    background-color: var(--white);
     border-style: solid;
     border-color: var(--hover-blue);
     transition: 0.25s;

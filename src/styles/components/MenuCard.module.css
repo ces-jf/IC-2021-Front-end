@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 2rem;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.text {
+    text-align: center;  
+    display: inline-block;  
+}
+
+.marreta {
+    margin-top: 0.8rem;
+}

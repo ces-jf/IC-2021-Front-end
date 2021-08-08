@@ -9,6 +9,8 @@
 }
 
 .box {
+    position: relative;
+    top: -3rem;
     background-color: var(--light-blue);
     border-radius: 8px;
     z-index: 2;
@@ -61,4 +63,10 @@
     100% {
       transform: scale(1,1);
     }
+}
+
+.logo svg {
+    position: relative;
+    top: -4rem;
+    max-height: 5rem;
 }
