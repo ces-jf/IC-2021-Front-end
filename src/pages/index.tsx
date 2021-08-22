@@ -2,10 +2,15 @@
 // import { useEffect, useState } from "react";
 import { Button } from '../components/Button';
 import { MenuCard } from '../components/MenuCard';
-import styles from '../styles/pages/index.module.css';
+import { Modal } from '../components/Modal';
 import { BsFolderSymlink, BsFolderPlus } from 'react-icons/bs';
+import { VscRepo } from 'react-icons/vsc';
+import { RiUserLine } from 'react-icons/ri'
 import { LogoUniAc } from '../components/LogoUniAc';
+import { Input } from '../components/Input';
 import Link from 'next/link'
+import React, { useEffect, useState } from 'react';
+import styles from '../styles/pages/index.module.css';
 
 export default function Home() {
   // useEffect(() => {
@@ -14,6 +19,8 @@ export default function Home() {
   //         console.log(res);
   //       });
   // }, []);
+
+  const [isModalOpen, setModalOpen] = useState(true); 
 
   return (
     <>
@@ -37,15 +44,27 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href='/'>
-            <a>
+          <Modal isOpen={isModalOpen} onClose={ (e) => setModalOpen(e)}
+            title='Cadastro de repositório'>
+              <Input type='text' 
+                        labelText='Nome do usuário'
+                        id='iNomeUsuario'
+                        isRequired={true}
+                        icon={ RiUserLine }/>
+              <Input type='text' 
+                        labelText='Nome do repositório'
+                        id='iNomeRepositorio'
+                        isRequired={true}
+                        icon={ VscRepo }/>
+          </Modal>
+
+            <a onClick={ () => setModalOpen(true)}>
               <Button secondary>
                   <MenuCard icon={BsFolderPlus}> 
                     Cadastrar repositório
                   </MenuCard>
               </Button>
             </a>
-          </Link>
         </div>
     </div>
     </>
