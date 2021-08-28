@@ -1,26 +1,15 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
 import { Button } from '../components/Button';
 import { MenuCard } from '../components/MenuCard';
 import { Modal } from '../components/Modal';
 import { BsFolderSymlink, BsFolderPlus } from 'react-icons/bs';
-import { VscRepo } from 'react-icons/vsc';
-import { RiUserLine } from 'react-icons/ri'
 import { LogoUniAc } from '../components/LogoUniAc';
-import { Input } from '../components/Input';
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/pages/index.module.css';
+import { CadastroRepositorio } from '../components/CadastroRepositorio';
 
 export default function Home() {
-  // useEffect(() => {
-  //   axios.get('https://api.github.com/repos/WordPress/WordPress/contributors?per_page=100&page=1')
-  //       .then(res => {
-  //         console.log(res);
-  //       });
-  // }, []);
-
-  const [isModalOpen, setModalOpen] = useState(true); 
+  const [isModalOpen, setModalOpen] = useState(false); 
 
   return (
     <>
@@ -44,18 +33,8 @@ export default function Home() {
             </a>
           </Link>
 
-          <Modal isOpen={isModalOpen} onClose={ (e) => setModalOpen(e)}
-            title='Cadastro de repositório'>
-              <Input type='text' 
-                        labelText='Nome do usuário'
-                        id='iNomeUsuario'
-                        isRequired={true}
-                        icon={ RiUserLine }/>
-              <Input type='text' 
-                        labelText='Nome do repositório'
-                        id='iNomeRepositorio'
-                        isRequired={true}
-                        icon={ VscRepo }/>
+          <Modal isOpen={isModalOpen} onClose={ (e) => setModalOpen(e)} title='Cadastro de repositório'>
+              <CadastroRepositorio/>
           </Modal>
 
             <a onClick={ () => setModalOpen(true)}>
