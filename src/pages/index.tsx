@@ -10,6 +10,7 @@ import { CadastroRepositorio } from '../components/CadastroRepositorio';
 
 export default function Home() {
   const [isModalOpen, setModalOpen] = useState(false); 
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   return (
     <>
@@ -32,9 +33,20 @@ export default function Home() {
               </Button>
             </a>
           </Link>
+          
+          <Modal isOpen={showSuccessModal} onClose={ (e) => setShowSuccessModal(e)} title='Sucesso' isSuccess>
+            <div className={styles.flexCenter}>
+              O repositório foi cadastrado com sucesso!
+              <div className={styles.successButton}>
+                <Button onClick={ () => setShowSuccessModal(false)} >
+                  Ok
+                </Button>
+              </div>
+            </div>
+          </Modal>
 
           <Modal isOpen={isModalOpen} onClose={ (e) => setModalOpen(e)} title='Cadastro de repositório'>
-              <CadastroRepositorio/>
+              <CadastroRepositorio onSuccess={ (e) => { setShowSuccessModal(e); setModalOpen(false); } }/>
           </Modal>
 
             <a onClick={ () => setModalOpen(true)}>
