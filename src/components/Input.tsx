@@ -9,6 +9,9 @@ interface ButtonProps {
   type: string;
   size?: number;
   isRequired?: boolean;
+  showValidationMessage?: boolean;
+  disabled?: boolean;
+  onKeyPress?: (e) => void;
 }
 
 export function Input(props: ButtonProps) {
@@ -22,11 +25,14 @@ export function Input(props: ButtonProps) {
     <div className={styles.container}>
       <label htmlFor={props.id} className={styles.labelInput}>{props.labelText}</label>
       <div onClick={ () => input.current.focus()} 
-        className={`${styles.inputContainer} ${inputValue.length > 0 ? styles.filled : null } ${shouldValidationMessageAppear ? styles.erro : null}`}>
+        className={`${styles.inputContainer} ${inputValue.length > 0 ? styles.filled : null } ${(shouldValidationMessageAppear || props.showValidationMessage) ? styles.erro : null} ${props.disabled ? styles.disabled : null}`}>
         <props.icon/>
         <input id={props.id} ref={input}
           value = {inputValue}
-          onChange = { e => {setInputValue(e.target.value); setShouldValidationMessageAppear(false)} }
+          onChange = { e => {
+            setInputValue(e.target.value); 
+            setShouldValidationMessageAppear(false);
+          } }
           size = {props.size}
           type={props.type}
           required={props.isRequired}
@@ -35,9 +41,11 @@ export function Input(props: ButtonProps) {
               ? null
               : setShouldValidationMessageAppear(true) 
             : null}
+          onKeyPress={ (e) => props.onKeyPress(e) }
+          disabled={props.disabled}
         />
         <span ref={span}
-          className={`${styles.validationMessage} ${shouldValidationMessageAppear ? null : styles.displayNone}`}>Campo obrigatório</span>
+          className={`${styles.validationMessage} ${(shouldValidationMessageAppear || props.showValidationMessage) ? null : styles.displayNone}`}>Campo obrigatório</span>
         </div>
     </div>
   );

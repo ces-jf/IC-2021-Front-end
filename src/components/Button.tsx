@@ -7,14 +7,18 @@ interface ButtonProps {
     action?: string;
     method?: string;
     secondary?: boolean;
+    disabled?: boolean;
+    onClick?: (e) => void;
 }
 
 export function Button(props: ButtonProps) {
     return (
         <button type={props.type} 
-            className={props.secondary ? styles.secondaryButton : styles.button} 
+            className={`${props.secondary ? styles.secondaryButton : styles.button} ${props.disabled ? styles.disabled : null}` } 
             formAction={props.action} 
             formMethod={props.method}
+            disabled={props.disabled}
+            onClick={props.onClick}
         >
             {props.children}
         </button>

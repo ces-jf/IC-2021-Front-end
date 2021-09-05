@@ -67,3 +67,23 @@
     top: -4rem;
     max-height: 5rem;
 }
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.successButton {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.successButton > button {
+    background-color: var(--dark-green) !important;
+}
+
+.successButton > button:hover {
+    background-color: var(--green) !important;
+}

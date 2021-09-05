@@ -27,3 +27,11 @@
     background-color: var(--hover-blue);
     color: var(--white)
 }
+
+.disabled {
+    cursor: not-allowed !important;
+}
+
+.disabled:hover {
+    background-color: var(--blue);
+}

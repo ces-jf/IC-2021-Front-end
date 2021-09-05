@@ -11,8 +11,32 @@
     justify-content: center;
 }
 
+@media (max-width: 425px)
+{
+    .body {
+        width: 95vw;
+    }
+
+    .content {
+        padding: 0 2rem;
+    }
+}
+
+@media (min-width: 425px)
+{
+    .content {
+        padding: 0 4rem;
+    }
+}
+
+@media (min-width: 1500px)
+{
+    .body {
+        width: 28vw;
+    }
+}
+
 .body {
-    width: 28vw;
     background-color: var(--light-blue);
     border-radius: 8px;
     display: flex;
@@ -21,6 +45,12 @@
     flex-direction: column;
     padding: 1rem 0rem;
     margin-bottom: 30vh;
+}
+
+.body > svg {
+    color: var(--green);
+    width: 8rem;
+    height: 8rem;
 }
 
 .title {
@@ -37,5 +67,4 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0 4rem;
 }
