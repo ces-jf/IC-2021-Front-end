@@ -41,7 +41,7 @@ export function Input(props: ButtonProps) {
               ? null
               : setShouldValidationMessageAppear(true) 
             : null}
-          onKeyPress={ (e) => props.onKeyPress(e) }
+          onKeyPress={ props.onKeyPress ? (e) => props.onKeyPress(e) : null }
           disabled={props.disabled}
         />
         <span ref={span}

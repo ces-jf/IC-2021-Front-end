@@ -1,11 +1,39 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { BsEnvelope, BsLock } from 'react-icons/bs';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { LogoUniAc } from '../components/LogoUniAc';
+import { useRouter } from 'next/router';
 import styles from '../styles/pages/login.module.css';
+import { SyncLoader } from 'react-spinners';
 
 export default function Login() {
+    const [isLoading, setLoading] = useState(false);
+    const router = useRouter();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        let email = (document.getElementById('iEmail') as HTMLInputElement).value;
+        let senha = (document.getElementById('iSenha') as HTMLInputElement).value;
+        setLoading(true);
+        axios({
+            method: 'POST',
+            headers: {'Access-Control-Allow-Origin': '*'},
+            url: 'https://ces-ic-2021.herokuapp.com/security/login',
+            data: {
+                "email": email,
+                "password": senha
+            }
+        }).then(res => {
+            localStorage.setItem('token', res.data.data.token);
+            router.push('/');
+        }).catch(err => {
+            console.log(err);
+            setLoading(false);
+        });
+    }
+
     return (
         <>
         <div className={styles.marreta}>
@@ -18,12 +46,18 @@ export default function Login() {
                 <LogoUniAc/>
             </div>
             <div className={styles.box}>
-                <form>
-                <Input type='email' id='iEmail' icon={BsEnvelope} labelText='Endereço de Email' isRequired/>
-                <Input type='password' id='iSenha' icon={BsLock} labelText='Senha' isRequired/>
-                <div className={styles.buttonArea}>
-                    <Button type='submit'>Login</Button>
-                </div>
+                <form onSubmit={ (e) => handleLogin(e) }>
+                    <Input type='email' id='iEmail' icon={BsEnvelope} labelText='Endereço de Email' isRequired/>
+                    <Input type='password' id='iSenha' icon={BsLock} labelText='Senha' isRequired/>
+                    <div className={styles.buttonArea}>
+                        <Button disabled={isLoading}>
+                        {
+                            isLoading 
+                            ? <SyncLoader size={8} color={'#ffffffb9'}/>
+                            : 'Login'
+                        }
+                        </Button>
+                    </div>
                 </form>
             </div>
         </div>

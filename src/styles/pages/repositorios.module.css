@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--blue);
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2.5rem;
+}
+
+@media (max-width: 425px)
+{
+    .content {
+        width: 97vw;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 2500px)
+{
+    .content {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 2500px)
+{
+    .content {
+        width: 50vw;
+    }
+}
+
+.content {
+    border-radius: 8px;
+    background-color: var(--light-blue);
+    position: relative;
+    top: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.logo svg {
+    position: relative;
+    top: 2rem;
+    max-height: 5rem;
+}

@@ -1,8 +1,11 @@
+import { AppWrapper } from '../helpers/state';
 import '../styles/style.css';
 
 function MyApp ({ Component, pageProps }) {
-  return( 
-    <Component {...pageProps} />
+  return(
+    <AppWrapper>
+        <Component {...pageProps} />
+    </AppWrapper>
   );
 }
 
