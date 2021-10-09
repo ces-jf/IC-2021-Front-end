@@ -134,7 +134,7 @@ export default function Repositorios() {
         "temp_clone_token": null,
         "network_count": 1357,
         "subscribers_count": 496
-      }`
+      }`;
     const mockApi = JSON.parse(resStr);
 
     const authenticated = doAuth();
