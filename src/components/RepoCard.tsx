@@ -4,6 +4,7 @@ import { VscRepoForked } from 'react-icons/vsc';
 import { FaRegDotCircle } from 'react-icons/fa';
 import emojiName from 'emoji-name-map'
 import styles from '../styles/components/RepoCard.module.css';
+import { useRouter } from 'next/router';
 
 interface RepoCardProps {
     avatarUrl: string;
@@ -35,10 +36,13 @@ export function RepoCard(props: RepoCardProps) {
 
         text = arrNewText.join(' ');
         return text;
-      }
+    }
+
+	const router = useRouter();   
+    const handleClick = (id: string) => router.push(`/repositorios/${id}`)
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => handleClick(props.name)}>
             <div className={styles.avatar}>
                 <Avatar src={props.avatarUrl}/>
             </div>

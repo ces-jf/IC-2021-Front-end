@@ -6,6 +6,7 @@ import { useState } from 'react';
 import SyncLoader from "react-spinners/SyncLoader";
 import axios from 'axios';
 import styles from '../styles/components/CadastroRepositorio.module.css';
+import api from '../helpers/api';
 
 interface CadastroRepositorioProps{
   onSuccess: (e) => void;
@@ -28,15 +29,7 @@ export function CadastroRepositorio(props: CadastroRepositorioProps) {
     }
     setValidationMessage('');
     setLoading(true);
-    axios({
-      method: 'POST',
-      headers: {'Access-Control-Allow-Origin': '*'},
-      url: 'https://ces-ic-2021.herokuapp.com/repos',
-      data: {
-        user: user,
-        repo: repo
-      }
-    }).then(res => {
+    api.post('/repos', {user: user, repo: repo}).then(res => {
       console.log(res);
       props.onSuccess(true);
       

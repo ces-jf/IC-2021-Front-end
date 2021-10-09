@@ -10,7 +10,7 @@ import { CadastroRepositorio } from '../components/CadastroRepositorio';
 import doAuth from '../helpers/authHelper';
 
 export default function Home() {
-  let authenticated = doAuth();
+  const authenticated = doAuth();
   if (authenticated) {
     const [isModalOpen, setModalOpen] = useState(false); 
     const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -27,7 +27,7 @@ export default function Home() {
             <LogoUniAc/>
           </div>
           <div className={styles.box}>
-            <Link href='/'>
+            <Link href='/repositorios'>
               <a>
                 <Button secondary>
                     <MenuCard icon={BsFolderSymlink}> 
