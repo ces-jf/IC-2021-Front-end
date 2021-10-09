@@ -1,13 +1,15 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { LogoUniAc } from '../components/LogoUniAc';
-import { RepoCard } from '../components/RepoCard';
-import styles from '../styles/pages/repositorios.module.css';
-import api from '../helpers/api';
-import doAuth from '../helpers/authHelper';
+import React, { useEffect, useState } from 'react';
+import { LogoUniAc } from '../../components/LogoUniAc';
+import { RepoCard } from '../../components/RepoCard';
+import styles from '../../styles/pages/repositorios.module.css';
+import api from '../../helpers/api';
+import doAuth from '../../helpers/authHelper';
+import { BsArrowReturnLeft } from 'react-icons/bs';
+import Link from 'next/link';
 
-export default function Repositorios() {
-    let authenticated = doAuth();
+export default function Home() {
+    const authenticated = doAuth(); 
     
     if (authenticated) {
         let repositorios = [];
@@ -44,7 +46,15 @@ export default function Repositorios() {
                 <div className={styles.logo}>
                     <LogoUniAc/>
                 </div>
+                <Link href='/'>
+                    <div className={styles.voltar}>
+                        <BsArrowReturnLeft/>
+                    </div>
+                </Link>
                 <div className={styles.content}>
+                    <div className={styles.titulo}>
+                        <h1>Repositórios cadastrados</h1>
+                    </div>
                     {cards}
                 </div>
             </div>
